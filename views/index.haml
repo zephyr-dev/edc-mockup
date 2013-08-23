@@ -1,14 +1,64 @@
 %html{:lang => "end"}
-	%head
-		%meta{:charset => "utf-8"}
-		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-		%title EDC Mock Up
-		%link{:href => "css/bootstrap.css", :rel => "stylesheet"}
-		%link{:href => "css/bootstrap-responsive.css", :rel => "stylesheet"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title EDC Mock Up
+    %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}
 
-	%body
-		.container-narrow
-			EDC Mockup
+  %body
+    .container.narrow
+      .page-header
+        %h1 NYC-EDC | NYC Startup Ecosystem
+        %p.lead
+          The Economic Development Committee's validation and promotion of early stage companies in NYC
 
-		%script{:src => "js/jquery.js"}
-		%script{:src => "js/bootstrap.js"}
+      %p The New York Economic Development Committee is working together with Gust to help support the NYC startup community. We've gathered information on companies based in NYC and would like blah blah blah. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+      %h4 Company Details
+      %p Please review your company details for accuracy, upon submission we will validate them in our database
+      %hr
+
+      .form-horizontal{:role => "form"}
+        .form-group
+          %label.col-lg-4.control-label
+            Company Name
+          .col-lg-4
+            %input.form-control{:placeholder => "Green Rabbits"}
+        .form-group
+          %label.col-lg-4.control-label
+            Website
+          .col-lg-4
+            %input.form-control{:placeholder => "http://www.greenrabbits.com"}
+        .form-group
+          %label.col-lg-4.control-label
+            Company Summary
+          .col-lg-4
+            %textarea.form-control{:placeholder => "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.", :rows => "4"}
+        .form-group
+          %label.col-lg-4.control-label
+            Address
+          .col-lg-4
+            %input.form-control{:placeholder => "158 West 29th St."}
+        .form-group
+          %label.col-lg-4.control-label
+            Addr 2
+          .col-lg-4
+            %input.form-control{:placeholder => "Floor 11"}
+        .form-group
+          %label.col-lg-4.control-label
+            City
+          .col-lg-4
+            %input.form-control{:placeholder => "Brooklyn"}
+        .form-group
+          .col-lg-4
+          %label.col-lg-1.control-label
+            State
+          .col-lg-1
+            %input.form-control{:placeholder => "NY"}
+          %label.col-lg-1.control-label
+            Zip
+          .col-lg-1
+            %input.form-control{:placeholder => "10001"}
+
+    %script{:src => "js/jquery.js"}
+    %script{:src => "js/bootstrap.min.js"}
