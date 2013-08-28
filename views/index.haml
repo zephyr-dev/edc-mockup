@@ -32,6 +32,15 @@
           .col-sm-4
             %img.img-logo{:src => "https://sphotos-a.xx.fbcdn.net/hphotos-frc1/224098_196876373688460_6265449_n.jpg"}
             %br
+            %br
+            %span.btn.btn-default.fileinput-button
+              %i.glyphicon.glyphicon-upload
+              Upload
+            %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+              %button.btn.btn-default
+                Link to Image
+            .collapseOne.collapse#collapseOne
+              %input.form-control{:placeholder => "http://www.someimage.com/image.png"}
           .col-sm-4
             %p.text-muted Logo edits can be made after publishing your profile
         .form-group
@@ -80,6 +89,29 @@
             Zip
           .col-sm-1
             %input.form-control{:placeholder => "11217"}
+        %h4 Social Links
+        %hr
+        .form-group
+          %label.col-sm-4.control-label
+            LinkedIn
+            %a{:href => "http://www.linkedin.com", :target => "_blank"}
+              %span.glyphicon.glyphicon-new-window
+          .col-sm-4
+            %input.form-control{:placeholder => "http://www.linkedin.com/groups?home=&gid=2672445&trk=anet_ug_hm"}
+        .form-group
+          %label.col-sm-4.control-label
+            Facebook
+            %a{:href => "http://www.facebook.com", :target => "_blank"}
+              %span.glyphicon.glyphicon-new-window
+          .col-sm-4
+            %input.form-control{:placeholder => "https://www.facebook.com/BrooklynFoodCoalition"}
+        .form-group
+          %label.col-sm-4.control-label
+            Twitter
+            %a{:href => "http://www.twitter.com", :target => "_blank"}
+              %span.glyphicon.glyphicon-new-window
+          .col-sm-4
+            %input.form-control{:placeholder => "N/A"}
         %h4 CEO/Founder/Owner Details
         %hr
         .form-group
@@ -109,29 +141,12 @@
             Phone
           .col-sm-4
             %input.form-control{:placeholder => "(347) 921-3918"}
-        %h4 Social Links
-        %hr
         .form-group
-          %label.col-sm-4.control-label
-            LinkedIn
-            %a{:href => "http://www.linkedin.com", :target => "_blank"}
-              %span.glyphicon.glyphicon-new-window
           .col-sm-4
-            %input.form-control{:placeholder => "http://www.linkedin.com/groups?home=&gid=2672445&trk=anet_ug_hm"}
-        .form-group
-          %label.col-sm-4.control-label
-            Facebook
-            %a{:href => "http://www.facebook.com", :target => "_blank"}
-              %span.glyphicon.glyphicon-new-window
-          .col-sm-4
-            %input.form-control{:placeholder => "https://www.facebook.com/BrooklynFoodCoalition"}
-        .form-group
-          %label.col-sm-4.control-label
-            Twitter
-            %a{:href => "http://www.twitter.com", :target => "_blank"}
-              %span.glyphicon.glyphicon-new-window
-          .col-sm-4
-            %input.form-control{:placeholder => "N/A"}
+          .col-sm-4.text-right
+            %button.btn.btn-default
+              %span.glyphicon.glyphicon-plus
+              Add Another Staff Member
         %br
     %p.text-center
       %button.btn.btn-lg.btn-success{:type => "submit"}

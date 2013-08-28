@@ -7,3 +7,7 @@ end
 get '/publish' do
   haml :publish
 end
+
+get '/hide_input' do
+  haml :hide_input
+end
