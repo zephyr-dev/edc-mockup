@@ -2,4 +2,12 @@
   %head
     %title Hide Input Test
   %body
+    %h2
+      %a{:href => "#", :id => "addScnt"}
+        Add Another
+    %div#p_scents
+      %p
+        %label{:for => "p_scnts"}
+        %input{:type => "text", :id => "p_scnt", :name => "p_scnt"}
+    
     %script{:src => "js/hide_input.js"}

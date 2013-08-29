@@ -1,19 +1,18 @@
-$(function() {
-  var addDiv = $('#addinput');
-  var i = $('#addinput p').size() + 1;
+(function() {
+  var scntDiv = $('#p_scents');
 
-  $('#addNew').live('click', function() {
-    $('<p><input type="text" id="p_new" size="40" name="p_new_' + i + '" value="" placeholder="I am New" /><a href="#" id="remNew">Remove</a></p>').appendTo(addDiv);
+  $(document).on('click', '#addScnt', function() {
+    $('<p><label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt_' + i +'" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(scntDiv);
     i++;
-    
     return false;
   });
 
-  $('#remNew').live('click', function() {
-    if( i > 2) {
+  $(document).on('click', '#remScnt', function() {
+    if( i > 2 ) {
       $(this).parents('p').remove();
       i--;
     }
     return false;
-   });
+  });
 });
+
