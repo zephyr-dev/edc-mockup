@@ -55,6 +55,8 @@
               %span.glyphicon.glyphicon-new-window
           .col-sm-4
             %input.form-control{:placeholder => "http://www.brooklynfoodcoalition.org"}
+          .col-sm-4
+            %a{:href => "http://www.brooklynfoodcoalition.org", :target => "_blank"} Test
         .form-group
           %label.col-sm-4.control-label
             Company Email
@@ -98,6 +100,8 @@
               %span.glyphicon.glyphicon-new-window
           .col-sm-4
             %input.form-control{:placeholder => "http://www.linkedin.com/groups?home=&gid=2672445&trk=anet_ug_hm"}
+          .col-sm-4
+            %a{:href => "http://www.linkedin.com", :target => "_blank"} Test
         .form-group
           %label.col-sm-4.control-label
             Facebook
@@ -105,6 +109,8 @@
               %span.glyphicon.glyphicon-new-window
           .col-sm-4
             %input.form-control{:placeholder => "https://www.facebook.com/BrooklynFoodCoalition"}
+          .col-sm-4
+            %a{:href => "http://www.facebook.com", :target => "_blank"} Test
         .form-group
           %label.col-sm-4.control-label
             Twitter
@@ -112,6 +118,8 @@
               %span.glyphicon.glyphicon-new-window
           .col-sm-4
             %input.form-control{:placeholder => "N/A"}
+          .col-sm-4
+            %a{:href => "http://www.twitter.com", :target => "_blank"} Test
         %h4 CEO/Founder/Owner Details
         %hr
         .form-group
@@ -141,12 +149,42 @@
             Phone
           .col-sm-4
             %input.form-control{:placeholder => "(347) 921-3918"}
+        .collapseOne.collapse#collapseTwo
+          %br
+          %h4 Team Member
+          %hr
+          .form-group
+            %label.col-sm-4.control-label
+              Email
+            .col-sm-4
+              %input.form-control{:placeholder => "nancy@brooklynfoodcoalition.org"}
+          .form-group
+            %label.col-sm-4.control-label
+              First Name
+            .col-sm-4
+              %input.form-control{:placeholder => "Nancy"}
+          .form-group
+            %label.col-sm-4.control-label
+              Last Name
+            .col-sm-4
+              %input.form-control{:placeholder => "Brewer"}
+          .form-group
+            %label.col-sm-4.control-label
+              Position
+            .col-sm-4
+              %input.form-control{:placeholder => "General Coordinator"}
+          .form-group
+            %label.col-sm-4.control-label
+              Phone
+            .col-sm-4
+              %input.form-control{:placeholder => "(347) 921-3918"}
         .form-group
           .col-sm-4
           .col-sm-4.text-right
-            %button.btn.btn-default
-              %span.glyphicon.glyphicon-plus
-              Add Another Staff Member
+            %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+              %button.btn.btn-default
+                %span.glyphicon.glyphicon-plus
+                Add Another Staff Member
         %br
     %p.text-center
       %button.btn.btn-lg.btn-success{:type => "submit"}
