@@ -1,0 +1,30 @@
+%html{:lang => "end"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title EDC Mock Up
+    %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "/css/edc.css", :rel => "stylesheet"}
+
+  %body
+    .container.narrow
+      .page-header
+        .page-header
+          %ul.list-inline
+            %li
+              %img{:src => "/img/logo.png"}
+          %p.lead
+            The Economic Development Corporation's validation and promotion of companies in NYC
+            web.app
+
+          %p The New York Economic Development Committee is working together with Gust to help support the NYC startup community. We've gathered information on companies based in NYC and would like blah blah blah. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          %p Please verify your company's information below, or make any edits necessary
+          %br
+          = haml :information
+    %hr
+    %p.text-center
+      %img{:src => "/img/powered_by_gust_light_small.png"}
+
+
+    %script{:src => "/js/jquery.js"}
+    %script{:src => "/js/bootstrap.min.js"}
