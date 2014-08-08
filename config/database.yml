@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: edc_development
+  username: 'edc_mockup'
+  password: 'edc_mockup'
+  host: localhost

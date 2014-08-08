@@ -11,7 +11,7 @@
     %label.col-sm-4.control-label
       Logo
     .col-sm-4
-      %img.img-logo{:src => "#{@company.company_logo_url}"}
+      %img.img-logo{:src => "#{@company.info['company_logo_url']}"}
       %br
       %br
       %span.btn.btn-default.fileinput-button
@@ -21,110 +21,111 @@
         %button.btn.btn-default
           Link to Image
       .collapseOne.collapse#collapseOne
-        %input.form-control{name: "update[company_logo_url]", :placeholder => "#{@company.company_logo_url}"}
+        %input.form-control{name: "update[company_logo_url]", :placeholder => "#{@company.info['company_logo_url']}"}
     .col-sm-4
       %p.text-muted Logo edits can be made after publishing your profile
   .form-group
     %label.col-sm-4.control-label
       Company Name
     .col-sm-4
-      %input.form-control{name: "update[company_name]",:placeholder => "#{@company.company_name }"}
+      %input.form-control{name: "update[company_name]",:placeholder => "#{@company.info[ 'company_name' ] }"}
   .form-group
     %label.col-sm-4.control-label
       Website
-      %a{:href => "#{@company.company_url}", :target => "_blank"}
+      %a{:href => "#{@company.info['company_url']}", :target => "_blank"}
         %span.glyphicon.glyphicon-new-window
     .col-sm-4
-      %input.form-control{name: "update[company_url]", :placeholder => "#{@company.company_url}"}
+      %input.form-control{name: "update[company_url]", :placeholder => "#{@company.info[ 'company_url' ]}"}
     .col-sm-4
-      %a{:href => "#{@company.company_url}", :target => "_blank"} Test
+      %a{:href => "#{@company.info['company_url']}", :target => "_blank"} Test
   .form-group
     %label.col-sm-4.control-label
       Company Summary
     .col-sm-4
-      %textarea.form-control{name: "update[company_summary]", :placeholder => "#{@company.company_summary}"}
+      %textarea.form-control{name: "update[company_summary]", :placeholder => "#{@company.info[ 'company_summary' ]}"}
   .form-group
     %label.col-sm-4.control-label
       Address
     .col-sm-4
-      %input.form-control{name: "update[str_address_1]", :placeholder => "#{@company.str_address_1}"}
+      %input.form-control{name: "update[str_address_1]", :placeholder => "#{@company.info[ 'str_address_1' ]}"}
   .form-group
     %label.col-sm-4.control-label
     .col-sm-4
-      %input.form-control{name: "update[str_address_2]",:placeholder => "#{@company.str_address_2}"}
+      %input.form-control{name: "update[str_address_2]",:placeholder => "#{@company.info[ 'str_address_2' ]}"}
   .form-group
     %label.col-sm-4.control-label
       City
     .col-sm-4
-      %input.form-control{name: "update[company_city]",:placeholder => "#{@company.company_city}"}
+      %input.form-control{name: "update[company_city]",:placeholder => "#{@company.info[ 'company_city' ]}"}
   .form-group
     %label.col-sm-4.control-label
       State
     .col-sm-2
-      %input.form-control{name: "update[company_state]",:placeholder => "#{@company.company_state}"}
+      %input.form-control{name: "update[company_state]",:placeholder => "#{@company.info['company_state']}"}
   .form-group
     %label.col-sm-4.control-label
       Zipcode
     .col-sm-2
-      %input.form-control{name: "update[company_zip]",:placeholder => "#{@company.company_zip}"}
+      %input.form-control{name: "update[company_zip]",:placeholder => "#{@company.info[ 'company_zip' ]}"}
   %h4 Social Links
   %hr
   .form-group
     %label.col-sm-4.control-label
       LinkedIn
-      %a{:href => "#{@company.company_linkedIn}", :target => "_blank"}
+      %a{:href => "#{@company.info['company_linkedIn']}", :target => "_blank"}
         %span.glyphicon.glyphicon-new-window
     .col-sm-4
-      %input.form-control{name: "update[company_linkedIn]",:placeholder => "#{@company.company_linkedIn}"}
+      %input.form-control{name: "update[company_linkedIn]",:placeholder => "#{@company.info[ 'company_linkedIn' ]}"}
     .col-sm-4
-      %a{:href => "#{@company.company_linkedIn}", :target => "_blank"} Test
+      %a{:href => "#{@company.info['company_linkedIn']}", :target => "_blank"} Test
   .form-group
     %label.col-sm-4.control-label
       Facebook
-      %a{:href => "#{@company.company_linkedIn}", :target => "_blank"}
+      %a{:href => "#{@company.info['company_linkedIn']}", :target => "_blank"}
         %span.glyphicon.glyphicon-new-window
     .col-sm-4
-      %input.form-control{name: "update[company_facebook]",:placeholder => "#{@company.company_facebook}"}
+      %input.form-control{name: "update[company_facebook]",:placeholder => "#{@company.info[ 'company_facebook' ]}"}
     .col-sm-4
-      %a{:href => "#{@company.company_facebook}", :target => "_blank"} Test
+      %a{:href => "#{@company.info['company_facebook']}", :target => "_blank"} Test
   .form-group
     %label.col-sm-4.control-label
       Twitter
-      %a{:href => "#{@company.company_twitter}", :target => "_blank"}
+      %a{:href => "#{@company.info['company_twitter']}", :target => "_blank"}
         %span.glyphicon.glyphicon-new-window
     .col-sm-4
-      %input.form-control{name: "update[company_twitter]",:placeholder => "#{@company.company_twitter}"}
+      %input.form-control{name: "update[company_twitter]",:placeholder => "#{@company.info[ 'company_twitter' ]}"}
     .col-sm-4
-      %a{:href => "#{@company.company_twitter}", :target => "_blank"} Test
+      %a{:href => "#{@company.info['company_twitter']}", :target => "_blank"} Test
   %h4 CEO/Founder/Owner Details
   %hr
   .form-group
     %label.col-sm-4.control-label
       Email
     .col-sm-4
-      %input.form-control{name: "update[primary_contact_email]",:placeholder => "#{@company.primary_contact_email}"}
+      %input.form-control{name: "update[primary_contact_email]",:placeholder => "#{@company.info[ 'primary_contact_email' ]}"}
     .col-sm-4
       %p.text-muted This will also be used as your Gust login account
   .form-group
     %label.col-sm-4.control-label
       First Name
     .col-sm-4
-      %input.form-control{name: "update[primary_contact_first_name]",:placeholder => "#{@company.primary_contact_first_name}"}
+      %input.form-control{name: "update[primary_contact_first_name]",:placeholder => "#{@company.info[ 'primary_contact_first_name' ]}"}
   .form-group
     %label.col-sm-4.control-label
       Last Name
     .col-sm-4
-      %input.form-control{name: "update[primary_contact_last_name]",:placeholder => "#{@company.primary_contact_last_name}"}
+      %input.form-control{name: "update[primary_contact_last_name]",:placeholder => "#{@company.info['primary_contact_last_name']}"}
   .form-group
     %label.col-sm-4.control-label
       Position
     .col-sm-4
-      %input.form-control{name: "update[primary_contact_position]",:placeholder => "#{@company.primary_contact_position}"}
+      %input.form-control{name: "update[primary_contact_position]",:placeholder => "#{@company.info[ 'primary_contact_position' ]}"}
   .form-group
     %label.col-sm-4.control-label
       Phone
     .col-sm-4
-      %input.form-control{name: "update[primary_contact_phone]",:placeholder => "#{@company.primary_contact_phone}"}
+      %input.form-control{name: "update[primary_contact_phone]",:placeholder => "#{@company.info[ 'primary_contact_phone' ]}"}
+  = haml :team_member_form
   .collapseOne.collapse#collapseTwo
     %br
     %h4 Team Member
@@ -133,22 +134,22 @@
       %label.col-sm-4.control-label
         Email
       .col-sm-4
-        %input.form-control{name: "update[tm1_email]",:placeholder => "#{@company.tm1_email}"}
+        %input.form-control{name: "update[tm1_email]",:placeholder => "#{@company.info[ 'tm1_email' ]}"}
     .form-group
       %label.col-sm-4.control-label
         First Name
       .col-sm-4
-        %input.form-control{name: "update[tm1_first_name]",:placeholder => "#{@company.tm1_first_name}"}
+        %input.form-control{name: "update[tm1_first_name]",:placeholder => "#{@company.info[ 'tm1_first_name' ]}"}
     .form-group
       %label.col-sm-4.control-label
         Last Name
       .col-sm-4
-        %input.form-control{name: "update[tm1_last_name]",:placeholder => "#{@company.tm1_last_name}"}
+        %input.form-control{name: "update[tm1_last_name]",:placeholder => "#{@company.info[ 'tm1_last_name' ]}"}
     .form-group
       %label.col-sm-4.control-label
         Position
       .col-sm-4
-        %input.form-control{name: "update[tm1_position]",:placeholder => "#{@company.tm1_position}"}
+        %input.form-control{name: "update[tm1_position]",:placeholder => "#{@company.info[ 'tm1_position' ]}"}
   .form-group
     .col-sm-4
     .col-sm-4.text-right
