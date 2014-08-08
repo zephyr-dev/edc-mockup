@@ -19,5 +19,14 @@ end
 
 get '/information/*' do |company_row|
   @company = Company.new(company_row)
+  @company.get_info
   haml :index
+end
+
+post '/information/*' do |company_row|
+  @company= Company.new(params['row'].to_i)
+  @company.get_info
+  @company.save_changes(params["update"])
+
+  haml :congrats
 end
