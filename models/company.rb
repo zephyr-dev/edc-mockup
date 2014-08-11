@@ -4,19 +4,16 @@ class Company
   require 'SecureRandom'
 
   attr_accessor :info
-
   def initialize(company_row)
     @row = company_row.to_i
 
-    @session= GoogleDrive.login("matthewr@gust.com","southbeachbrickell!")
+    @session= GoogleDrive.login("matthewr@gust.com",ENV["GMAIL_PASSWORD"])
     @spreadsheet= @session.spreadsheet_by_key("1QpxdZnqnHttGKjPS1sfqDvhhDjAt30SqrzK0i0M5DL0").worksheets[0]
     @column_index = get_column_index
     @info = get_spreadsheet_info
-    binding.pry
   end
 
   def save_changes(updates)
-    @spreadsheet= @session.spreadsheet_by_key("1QpxdZnqnHttGKjPS1sfqDvhhDjAt30SqrzK0i0M5DL0").worksheets[0]
     column_index = get_column_index
     updates.each do |attribute, update|
       if update != ""
@@ -26,6 +23,24 @@ class Company
 
     @spreadsheet.save()
   end
+
+
+  def team_members
+    if  @spreadsheet[@row, @column_index["tm1_first_name"]] != ""
+      if  @spreadsheet[@row, @column_index["tm2_first_name"]] != ""
+        if  @spreadsheet[@row, @column_index["tm3_first_name"]] != ""
+          3
+        else
+          2
+        end
+      else
+        1
+      end
+    else
+      0
+    end
+  end
+
 
   private
 
@@ -53,6 +68,14 @@ class Company
     index["tm1_first_name"] = 26
     index["tm1_last_name"] = 27
     index["tm1_position"] = 28
+    index["tm2_email"] = 33
+    index["tm2_first_name"] = 30
+    index["tm2_last_name"] = 31
+    index["tm2_position"] = 32
+    index["tm3_email"] = 37
+    index["tm3_first_name"] = 34
+    index["tm3_last_name"] = 35
+    index["tm3_position"] = 36
     index
   end
 

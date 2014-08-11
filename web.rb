@@ -39,8 +39,9 @@ get '/information/*' do |obfuscated_id|
   haml :index
 end
 
-post '/information/*' do |company_row|
-  @company= Company.new(params['row'].to_i)
+post '/information/*' do
+  company_row= Url.find_by_obfuscated_id(params["obfuscated_id"])
+  @company= Company.new(company_row.table_row)
   @company.save_changes(params["update"])
 
   haml :index

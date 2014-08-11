@@ -125,39 +125,40 @@
       Phone
     .col-sm-4
       %input.form-control{name: "update[primary_contact_phone]",:placeholder => "#{@company.info[ 'primary_contact_phone' ]}"}
-  = haml :team_member_form
-  .collapseOne.collapse#collapseTwo
+  - @company.team_members.times do |count|
+    -count += 1
     %br
     %h4 Team Member
     %hr
-    .form-group
-      %label.col-sm-4.control-label
-        Email
-      .col-sm-4
-        %input.form-control{name: "update[tm1_email]",:placeholder => "#{@company.info[ 'tm1_email' ]}"}
-    .form-group
-      %label.col-sm-4.control-label
-        First Name
-      .col-sm-4
-        %input.form-control{name: "update[tm1_first_name]",:placeholder => "#{@company.info[ 'tm1_first_name' ]}"}
-    .form-group
-      %label.col-sm-4.control-label
-        Last Name
-      .col-sm-4
-        %input.form-control{name: "update[tm1_last_name]",:placeholder => "#{@company.info[ 'tm1_last_name' ]}"}
-    .form-group
-      %label.col-sm-4.control-label
-        Position
-      .col-sm-4
-        %input.form-control{name: "update[tm1_position]",:placeholder => "#{@company.info[ 'tm1_position' ]}"}
-  .form-group
-    .col-sm-4
-    .col-sm-4.text-right
-      %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-        %button.btn.btn-default
-          %span.glyphicon.glyphicon-plus
-          Add Another Staff Member
+    %fieldset{role: "team_member"}
+      .form-group
+        %label.col-sm-4.control-label
+          Email
+        .col-sm-4
+          %input.form-control{name: "update[tm#{count.to_s}_email]",:placeholder => "#{@company.info[ 'tm' + count.to_s + '_email' ]}"}
+      .form-group
+        %label.col-sm-4.control-label
+          First Name
+        .col-sm-4
+          %input.form-control{name: "update[tm#{count.to_s}_first_name]",:placeholder => "#{@company.info[ 'tm' + count.to_s + '_first_name' ]}"}
+      .form-group
+        %label.col-sm-4.control-label
+          Last Name
+        .col-sm-4
+          %input.form-control{name: "update[tm#{count.to_s}_last_name]",:placeholder => "#{@company.info[ 'tm' + count.to_s + '_last_name' ]}"}
+      .form-group
+        %label.col-sm-4.control-label
+          Position
+        .col-sm-4
+          %input.form-control{name: "update[tm#{count.to_s}_position]",:placeholder => "#{@company.info[ 'tm' + count.to_s + '_position' ]}"}
+  #team
+  .btn.btn-default{ onclick: "addTeamMember()"}
+    %span.glyphicon.glyphicon-plus
+    Add Another Staff Member
+  %br
   %br
   %p.text-center
     %input.btn.btn-lg.btn-success{:type => "submit", value: "Validate and Publish"}
+    %input{type: 'hidden', name: "obfuscated_id", value: params['splat'].first}
+
 -# %a{:href => "/publish?company=zxcvadsfadfj9"}
