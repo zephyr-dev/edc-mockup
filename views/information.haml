@@ -127,10 +127,10 @@
       %input.form-control{name: "update[primary_contact_phone]",:placeholder => "#{@company.info[ 'primary_contact_phone' ]}"}
   - @company.team_members.times do |count|
     -count += 1
-    %br
-    %h4 Team Member
-    %hr
     %fieldset{role: "team_member"}
+      %br
+      %h4 Team Member
+      %hr
       .form-group
         %label.col-sm-4.control-label
           Email
@@ -152,7 +152,7 @@
         .col-sm-4
           %input.form-control{name: "update[tm#{count.to_s}_position]",:placeholder => "#{@company.info[ 'tm' + count.to_s + '_position' ]}"}
   #team
-  .btn.btn-default{ onclick: "addTeamMember()"}
+  .btn.btn-default{id: "add-tm-button", onclick: "addTeamMember()"}
     %span.glyphicon.glyphicon-plus
     Add Another Staff Member
   %br
