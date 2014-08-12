@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-  require 'SecureRandom'
+  require 'securerandom'
 
 
   def self.generate_urls
