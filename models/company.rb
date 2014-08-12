@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
 
   require 'google_drive'
-  require 'SecureRandom'
+  require 'securerandom'
 
   attr_accessor :info
   # def initialize(company_row)
