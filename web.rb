@@ -21,17 +21,13 @@ ActiveRecord::Base.establish_connection(
 
 
 get '/' do
-  @company = 1
+  @company= Company.last
   haml :index
 end
 
 get '/publish' do
   @company
   haml :publish
-end
-
-get '/hide_input' do
-  haml :hide_input
 end
 
 get '/information/*' do |obfuscated_id|
@@ -54,5 +50,4 @@ post '/publish' do
   haml :publish, locals: {:company => @company}
 end
 
-private
 

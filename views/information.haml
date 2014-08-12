@@ -50,8 +50,6 @@
             %span.glyphicon.glyphicon-new-window
         .col-sm-4
           %input.form-control{name: "update[company_url]", :placeholder => @company.company_url}
-        .col-sm-4
-          %a{:href => @company.company_url, :target => "_blank"} Test
       .form-group
         %label.col-sm-4.control-label
           Company Summary
@@ -93,7 +91,7 @@
       .form-group
         %label.col-sm-4.control-label
           Facebook
-          %a{:href => @company.company_linkedIn, :target => "_blank"}
+          %a{:href => @company.company_facebook, :target => "_blank"}
             %span.glyphicon.glyphicon-new-window
         .col-sm-4
           %input.form-control{name: "update[company_facebook]",:placeholder => @company.company_facebook}
@@ -133,7 +131,7 @@
           Phone
         .col-sm-4
           %input.form-control{name: "update[primary_contact_phone]",:placeholder => @company.primary_contact_phone}
-      - @company.team_members_count(@company).times do |count|
+      - Reference.team_members_count(@company).times do |count|
         -count += 1
         %fieldset{role: "team_member"}
           %br

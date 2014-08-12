@@ -1,5 +1,17 @@
 class Reference
 
+
+  def self.team_members_count(company)
+    count = 0
+    fields = ['tm1_first_name', 'tm2_first_name', 'tm3_first_name']
+    fields.each do |field_name|
+      count +=1 if company.send(field_name).present?
+    end
+
+    count
+
+  end
+
   def self.get_column_index
 
     index = {}
