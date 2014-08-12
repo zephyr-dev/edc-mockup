@@ -34,15 +34,21 @@ get '/hide_input' do
 end
 
 get '/information/*' do |obfuscated_id|
-  company_row= Url.find_by_obfuscated_id(obfuscated_id)
-  @company = Company.new(company_row.table_row)
+  @company = Company.find_by_obfuscated_id(obfuscated_id)
   haml :index
 end
 
 post '/information/*' do
-  company_row= Url.find_by_obfuscated_id(params["obfuscated_id"])
-  @company= Company.new(company_row.table_row)
-  @company.save_changes(params["update"])
+  @company = Company.find_by_obfuscated_id(params["obfuscated_id"])
+
+  updates = params['update']
+   column_index = Reference.get_column_index
+    updates.each do |attribute, update|
+      if update != ""
+        @company.send("#{attribute}=", update)
+      end
+    end
+  @company.save
 
   haml :index
 end

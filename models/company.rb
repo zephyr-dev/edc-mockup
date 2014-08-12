@@ -1,17 +1,17 @@
-class Company
+class Company < ActiveRecord::Base
 
   require 'google_drive'
   require 'SecureRandom'
 
   attr_accessor :info
-  def initialize(company_row)
-    @row = company_row
+  # def initialize(company_row)
+  # @row = company_row
 
-    @session= GoogleDrive.login("matthewr@gust.com",ENV["GMAIL_PASSWORD"])
-    @spreadsheet= @session.spreadsheet_by_key(ENV["SPREADSHEET_KEY"]).worksheets[0]
-    @column_index = get_column_index
-    @info = get_spreadsheet_info
-  end
+  # @session= GoogleDrive.login("matthewr@gust.com",ENV["GMAIL_PASSWORD"])
+  # @spreadsheet= @session.spreadsheet_by_key(ENV["SPREADSHEET_KEY"]).worksheets[0]
+  # @column_index = get_column_index
+  # @info = get_spreadsheet_info
+  # end
 
   def save_changes(updates)
     column_index = get_column_index
@@ -25,10 +25,10 @@ class Company
   end
 
 
-  def team_members
-    if  @spreadsheet[@column_index["tm1_first_name"] + @row] != ""
-      if  @spreadsheet[@column_index["tm2_first_name"]+ @row] != ""
-        if  @spreadsheet[@column_index["tm3_first_name"] + @row] != ""
+  def team_members_count(company)
+    if  company.tm1_first_name != ""
+      if  company.tm2_first_name  != ""
+        if  company.tm3_first_name  != ""
           3
         else
           2
@@ -41,6 +41,23 @@ class Company
     end
   end
 
+  def self.generate_companies
+
+    index = Reference.get_column_index
+    @session= GoogleDrive.login("matthewr@gust.com",ENV['GMAIL_PASSWORD'])
+    spreadsheet= @session.spreadsheet_by_key(ENV["SPREADSHEET_KEY"]).worksheets[0]
+    spreadsheet.num_rows.times do  |current_row|
+      current_row +=1
+      company = Company.new do |c|
+        Reference.get_spreadsheet_info(spreadsheet,current_row).each do |attribute,column|
+          c.send("#{attribute}=", spreadsheet[index[attribute]+current_row.to_s])
+        end
+        c.table_row = current_row
+        c.obfuscated_id = SecureRandom.uuid
+      end
+      company.save
+    end
+  end
 
   private
 
@@ -79,12 +96,12 @@ class Company
     index
   end
 
-  def get_spreadsheet_info
-    @spreadsheet_info = {}
+  def get_spreadsheet_info(spreadsheet,current_row)
+    spreadsheet_info = {}
     get_column_index.each do |attribute,column|
-      @spreadsheet_info[attribute] =  @spreadsheet[column + @row]
+      spreadsheet_info[attribute] =  spreadsheet[column + current_row]
     end
-    @spreadsheet_info
+    spreadsheet_info
   end
 
 end
