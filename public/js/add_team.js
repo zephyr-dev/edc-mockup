@@ -16,3 +16,12 @@ function addTeamMember(){
   }
 
 }
+
+function noButton(){
+
+  tm_count = $("fieldset[role='team_member']").length
+  if(tm_count >= 3){
+    $("#add-tm-button").remove();
+  }
+
+}
