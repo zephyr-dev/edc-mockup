@@ -26,6 +26,7 @@ get '/' do
 end
 
 get '/publish' do
+  @company
   haml :publish
 end
 
@@ -38,7 +39,7 @@ get '/information/*' do |obfuscated_id|
   haml :index
 end
 
-post '/information/*' do
+post '/publish' do
   @company = Company.find_by_obfuscated_id(params["obfuscated_id"])
 
   updates = params['update']
@@ -50,7 +51,7 @@ post '/information/*' do
     end
   @company.save
 
-  haml :index
+  haml :publish, locals: {:company => @company}
 end
 
 private

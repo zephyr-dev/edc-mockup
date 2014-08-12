@@ -1,158 +1,172 @@
-%p.text-center
-  %a{:href => "/publish?company=zxcvadsfadfj9"}
-    %button.btn.btn-lg.btn-success{:type => "submit"}
-      Validate and Publish
-%br
-%h4 Company Details
-%hr
-%form.form-horizontal{ method: :post, action: "/information/*"}
-  %input{type: 'hidden',name: 'row', value: "#{params['splat'].first}"}
-  .form-group
-    %label.col-sm-4.control-label
-      Logo
-    .col-sm-4
-      %img.img-logo{:src => @company.company_logo_url}
-      %br
-      %br
-      %span.btn.btn-default.fileinput-button
-        %i.glyphicon.glyphicon-upload
-        Upload
-      %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
-        %button.btn.btn-default
-          Link to Image
-      .collapseOne.collapse#collapseOne
-        %input.form-control{name: "update[company_logo_url]", :placeholder => @company.company_logo_url}
-    .col-sm-4
-      %p.text-muted Logo edits can be made after publishing your profile
-  .form-group
-    %label.col-sm-4.control-label
-      Company Name
-    .col-sm-4
-      %input.form-control{name: "update[company_name]",:placeholder => @company.company_name }
-  .form-group
-    %label.col-sm-4.control-label
-      Website
-      %a{:href => @company.company_url, :target => "_blank"}
-        %span.glyphicon.glyphicon-new-window
-    .col-sm-4
-      %input.form-control{name: "update[company_url]", :placeholder => @company.company_url}
-    .col-sm-4
-      %a{:href => @company.company_url, :target => "_blank"} Test
-  .form-group
-    %label.col-sm-4.control-label
-      Company Summary
-    .col-sm-4
-      %textarea.form-control{name: "update[company_summary]", :placeholder => @company.company_summary}
-  .form-group
-    %label.col-sm-4.control-label
-      Address
-    .col-sm-4
-      %input.form-control{name: "update[str_address_1]", :placeholder => @company.str_address_1}
-  .form-group
-    %label.col-sm-4.control-label
-    .col-sm-4
-      %input.form-control{name: "update[str_address_2]",:placeholder => @company.str_address_2}
-  .form-group
-    %label.col-sm-4.control-label
-      City
-    .col-sm-4
-      %input.form-control{name: "update[company_city]",:placeholder => @company.company_city}
-  .form-group
-    %label.col-sm-4.control-label
-      State
-    .col-sm-2
-      %input.form-control{name: "update[company_state]",:placeholder => @company.company_state}
-  .form-group
-    %label.col-sm-4.control-label
-      Zipcode
-    .col-sm-2
-      %input.form-control{name: "update[company_zip]",:placeholder => @company.company_zip}
-  %h4 Social Links
-  %hr
-  .form-group
-    %label.col-sm-4.control-label
-      LinkedIn
-      %a{:href => @company.company_linkedIn, :target => "_blank"}
-        %span.glyphicon.glyphicon-new-window
-    .col-sm-4
-      %input.form-control{name: "update[company_linkedIn]",:placeholder => @company.company_linkedIn}
-  .form-group
-    %label.col-sm-4.control-label
-      Facebook
-      %a{:href => @company.company_linkedIn, :target => "_blank"}
-        %span.glyphicon.glyphicon-new-window
-    .col-sm-4
-      %input.form-control{name: "update[company_facebook]",:placeholder => @company.company_facebook}
-  .form-group
-    %label.col-sm-4.control-label
-      Twitter
-      %a{:href => @company.company_twitter, :target => "_blank"}
-        %span.glyphicon.glyphicon-new-window
-    .col-sm-4
-      %input.form-control{name: "update[company_twitter]",:placeholder => @company.company_twitter}
-  %h4 CEO/Founder/Owner Details
-  %hr
-  .form-group
-    %label.col-sm-4.control-label
-      Email
-    .col-sm-4
-      %input.form-control{name: "update[primary_contact_email]",:placeholder => @company.primary_contact_email}
-    .col-sm-4
-      %p.text-muted This will also be used as your Gust login account
-  .form-group
-    %label.col-sm-4.control-label
-      First Name
-    .col-sm-4
-      %input.form-control{name: "update[primary_contact_first_name]",:placeholder => @company.primary_contact_first_name}
-  .form-group
-    %label.col-sm-4.control-label
-      Last Name
-    .col-sm-4
-      %input.form-control{name: "update[primary_contact_last_name]",:placeholder => @company.primary_contact_last_name}
-  .form-group
-    %label.col-sm-4.control-label
-      Position
-    .col-sm-4
-      %input.form-control{name: "update[primary_contact_position]",:placeholder => @company.primary_contact_position}
-  .form-group
-    %label.col-sm-4.control-label
-      Phone
-    .col-sm-4
-      %input.form-control{name: "update[primary_contact_phone]",:placeholder => @company.primary_contact_phone}
-  - @company.team_members_count(@company).times do |count|
-    -count += 1
-    %fieldset{role: "team_member"}
-      %br
-      %h4 Team Member
+%body
+  .container.narrow
+    .page-header
+      .page-header
+        %ul.list-inline
+          %li
+            %img{:src => "/img/logo.png"}
+        %p.lead
+          The Economic Development Corporation's validation and promotion of companies in NYC
+          web.app
+
+        %p The New York Economic Development Committee is working together with Gust to help support the NYC startup community. We've gathered information on companies based in NYC and would like blah blah blah. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        %p Please verify your company's information below, or make any edits necessary
+        %br
+    %p.text-center
+      %a{:href => "/publish?company=zxcvadsfadfj9"}
+        %button.btn.btn-lg.btn-success{:type => "submit"}
+          Validate and Publish
+    %br
+    %h4 Company Details
+    %hr
+    %form.form-horizontal{ method: :post, action: "/publish"}
+      %input{type: 'hidden',name: 'obfuscated_id', value: @company.obfuscated_id}
+      .form-group
+        %label.col-sm-4.control-label
+          Logo
+        .col-sm-4
+          %img.img-logo{:src => @company.company_logo_url}
+          %br
+          %br
+          %span.btn.btn-default.fileinput-button
+            %i.glyphicon.glyphicon-upload
+            Upload
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %button.btn.btn-default
+              Link to Image
+          .collapseOne.collapse#collapseOne
+            %input.form-control{name: "update[company_logo_url]", :placeholder => @company.company_logo_url}
+        .col-sm-4
+          %p.text-muted Logo edits can be made after publishing your profile
+      .form-group
+        %label.col-sm-4.control-label
+          Company Name
+        .col-sm-4
+          %input.form-control{name: "update[company_name]",:placeholder => @company.company_name }
+      .form-group
+        %label.col-sm-4.control-label
+          Website
+          %a{:href => @company.company_url, :target => "_blank"}
+            %span.glyphicon.glyphicon-new-window
+        .col-sm-4
+          %input.form-control{name: "update[company_url]", :placeholder => @company.company_url}
+        .col-sm-4
+          %a{:href => @company.company_url, :target => "_blank"} Test
+      .form-group
+        %label.col-sm-4.control-label
+          Company Summary
+        .col-sm-4
+          %textarea.form-control{name: "update[company_summary]", :placeholder => @company.company_summary}
+      .form-group
+        %label.col-sm-4.control-label
+          Address
+        .col-sm-4
+          %input.form-control{name: "update[str_address_1]", :placeholder => @company.str_address_1}
+      .form-group
+        %label.col-sm-4.control-label
+        .col-sm-4
+          %input.form-control{name: "update[str_address_2]",:placeholder => @company.str_address_2}
+      .form-group
+        %label.col-sm-4.control-label
+          City
+        .col-sm-4
+          %input.form-control{name: "update[company_city]",:placeholder => @company.company_city}
+      .form-group
+        %label.col-sm-4.control-label
+          State
+        .col-sm-2
+          %input.form-control{name: "update[company_state]",:placeholder => @company.company_state}
+      .form-group
+        %label.col-sm-4.control-label
+          Zipcode
+        .col-sm-2
+          %input.form-control{name: "update[company_zip]",:placeholder => @company.company_zip}
+      %h4 Social Links
+      %hr
+      .form-group
+        %label.col-sm-4.control-label
+          LinkedIn
+          %a{:href => @company.company_linkedIn, :target => "_blank"}
+            %span.glyphicon.glyphicon-new-window
+        .col-sm-4
+          %input.form-control{name: "update[company_linkedIn]",:placeholder => @company.company_linkedIn}
+      .form-group
+        %label.col-sm-4.control-label
+          Facebook
+          %a{:href => @company.company_linkedIn, :target => "_blank"}
+            %span.glyphicon.glyphicon-new-window
+        .col-sm-4
+          %input.form-control{name: "update[company_facebook]",:placeholder => @company.company_facebook}
+      .form-group
+        %label.col-sm-4.control-label
+          Twitter
+          %a{:href => @company.company_twitter, :target => "_blank"}
+            %span.glyphicon.glyphicon-new-window
+        .col-sm-4
+          %input.form-control{name: "update[company_twitter]",:placeholder => @company.company_twitter}
+      %h4 CEO/Founder/Owner Details
       %hr
       .form-group
         %label.col-sm-4.control-label
           Email
         .col-sm-4
-          %input.form-control{name: "update[tm#{count.to_s}_email]",:placeholder => @company.send("tm#{count}_email")}
+          %input.form-control{name: "update[primary_contact_email]",:placeholder => @company.primary_contact_email}
+        .col-sm-4
+          %p.text-muted This will also be used as your Gust login account
       .form-group
         %label.col-sm-4.control-label
           First Name
         .col-sm-4
-          %input.form-control{name: "update[tm#{count.to_s}_first_name]",:placeholder => @company.send("tm#{count}_first_name")}
+          %input.form-control{name: "update[primary_contact_first_name]",:placeholder => @company.primary_contact_first_name}
       .form-group
         %label.col-sm-4.control-label
           Last Name
         .col-sm-4
-          %input.form-control{name: "update[tm#{count.to_s}_last_name]",:placeholder => @company.send("tm#{count}_last_name")}
+          %input.form-control{name: "update[primary_contact_last_name]",:placeholder => @company.primary_contact_last_name}
       .form-group
         %label.col-sm-4.control-label
           Position
         .col-sm-4
-          %input.form-control{name: "update[tm#{count.to_s}_position]",:placeholder => @company.send("tm#{count}_position")}
-  #team
-  .btn.btn-default{id: "add-tm-button", onclick: "addTeamMember()"}
-    %span.glyphicon.glyphicon-plus
-    Add Another Staff Member
-  %br
-  %br
-  %p.text-center
-    %input.btn.btn-lg.btn-success{:type => "submit", value: "Validate and Publish"}
-    %input{type: 'hidden', name: "obfuscated_id", value: params['splat'].first}
+          %input.form-control{name: "update[primary_contact_position]",:placeholder => @company.primary_contact_position}
+      .form-group
+        %label.col-sm-4.control-label
+          Phone
+        .col-sm-4
+          %input.form-control{name: "update[primary_contact_phone]",:placeholder => @company.primary_contact_phone}
+      - @company.team_members_count(@company).times do |count|
+        -count += 1
+        %fieldset{role: "team_member"}
+          %br
+          %h4 Team Member
+          %hr
+          .form-group
+            %label.col-sm-4.control-label
+              Email
+            .col-sm-4
+              %input.form-control{name: "update[tm#{count.to_s}_email]",:placeholder => @company.send("tm#{count}_email")}
+          .form-group
+            %label.col-sm-4.control-label
+              First Name
+            .col-sm-4
+              %input.form-control{name: "update[tm#{count.to_s}_first_name]",:placeholder => @company.send("tm#{count}_first_name")}
+          .form-group
+            %label.col-sm-4.control-label
+              Last Name
+            .col-sm-4
+              %input.form-control{name: "update[tm#{count.to_s}_last_name]",:placeholder => @company.send("tm#{count}_last_name")}
+          .form-group
+            %label.col-sm-4.control-label
+              Position
+            .col-sm-4
+              %input.form-control{name: "update[tm#{count.to_s}_position]",:placeholder => @company.send("tm#{count}_position")}
+      #team
+      .btn.btn-default{id: "add-tm-button", onclick: "addTeamMember()"}
+        %span.glyphicon.glyphicon-plus
+        Add Another Staff Member
+      %br
+      %br
+      %p.text-center
+        %input.btn.btn-lg.btn-success{:type => "submit", value: "Validate and Publish"}
+        %input{type: 'hidden', name: "obfuscated_id", value: @company.obfuscated_id}
 
--# %a{:href => "/publish?company=zxcvadsfadfj9"}
+    -# %a{:href => "/publish?company=zxcvadsfadfj9"}

@@ -26,7 +26,7 @@
         .col-sm-4
           %h4.text-center Gust Login Email:
           %p.text-center.lead
-            nancy@brooklynfoodcoalition.org
+            = @company.primary_contact_email
           %p.text-center
             %a
               %button.btn.btn-success.btn-lg
@@ -39,9 +39,6 @@
       .row
         .col-sm-4
 
-    %hr
-    %p.text-center
-      %img{:src => "img/powered_by_gust_light_small.png"}
 
 
     %script{:src => "js/jquery.js"}
