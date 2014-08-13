@@ -26,7 +26,7 @@ get '/' do
 end
 
 get '/publish' do
-  @company
+  @company= Company.last
   haml :publish
 end
 
@@ -45,9 +45,14 @@ post '/publish' do
         @company.send("#{attribute}=", update)
       end
     end
+  @company.updated = true
   @company.save
 
   haml :publish, locals: {:company => @company}
 end
 
+get '/download' do
+  Company.generate_spreadsheet
+  send_file 'updated.csv', type: :csv, filename: 'updated.csv'
 
+end

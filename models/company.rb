@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
 
   require 'google_drive'
   require 'securerandom'
+  require 'csv'
 
 
   def self.generate_companies
@@ -20,5 +21,26 @@ class Company < ActiveRecord::Base
       end
       company.save
     end
+  end
+
+  def self.generate_spreadsheet
+
+    @companies = Company.where(updated: true)
+    attributes = []
+    Reference.get_column_index.each do |attribute, letter|
+      attributes << attribute
+
+    end
+    CSV.open("updated.csv","wb") do |csv|
+      csv << attributes
+      @companies.each do |company|
+        current_company = []
+        attributes.each do |attribute|
+          current_company << company.send("#{attribute}")
+        end
+        csv << current_company
+      end
+    end
+
   end
 end
