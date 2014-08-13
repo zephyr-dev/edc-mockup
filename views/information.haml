@@ -12,15 +12,10 @@
         %p The New York Economic Development Committee is working together with Gust to help support the NYC startup community. We've gathered information on companies based in NYC and would like blah blah blah. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         %p Please verify your company's information below, or make any edits necessary
         %br
-    %p.text-center
-      %a{:href => "/publish?company=zxcvadsfadfj9"}
-        %button.btn.btn-lg.btn-success{:type => "submit"}
-          Validate and Publish
     %br
     %h4 Company Details
     %hr
     %form.form-horizontal{ method: :post, action: "/publish"}
-      %input{type: 'hidden',name: 'obfuscated_id', value: @company.obfuscated_id}
       .form-group
         %label.col-sm-4.control-label
           Logo
