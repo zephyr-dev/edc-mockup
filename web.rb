@@ -41,9 +41,7 @@ post '/publish' do
   updates = params['update']
    column_index = Reference.get_column_index
     updates.each do |attribute, update|
-      if update != ""
         @company.send("#{attribute}=", update)
-      end
     end
   @company.updated = true
   @company.save
